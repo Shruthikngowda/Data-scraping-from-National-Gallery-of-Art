@@ -18,6 +18,7 @@ artist_name_list = soup.find(class_='BodyText')
 # Pull text from all instances of <a> tag within BodyText div
 artist_name_list_items = artist_name_list.find_all('a')
 
-# Create for loop to print out all artists' names
+# Use .contents to pull out the <a> tag’s children
 for artist_name in artist_name_list_items:
-    print(artist_name.prettify())
+    names = artist_name.contents[0]
+    print(names)
