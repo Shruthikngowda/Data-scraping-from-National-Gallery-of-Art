@@ -8,6 +8,10 @@ page = requests.get('https://web.archive.org/web/20121007172955/https://www.nga.
 # Create a BeautifulSoup object
 soup = BeautifulSoup(page.text, 'html.parser')
 
+# Remove bottom links
+last_links = soup.find(class_='AlphaNav')
+last_links.decompose()
+
 # Pull all text from the BodyText div
 artist_name_list = soup.find(class_='BodyText')
 
